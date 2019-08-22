@@ -54,6 +54,7 @@ public class Consumer {
         consumer.setNamesrvAddr("172.34.27.37:9876");
         consumer.start();
         Set<MessageQueue> mqs = consumer.fetchSubscribeMessageQueues("TopicTest");
+        int count = 0;
         for (MessageQueue mq : mqs) {
             System.err.println("Consume from the queue: " + mq);
             SINGLE_MQ:
@@ -67,7 +68,7 @@ public class Consumer {
                         case FOUND:
                             List<MessageExt> messageExtList = pullResult.getMsgFoundList();
                             for (MessageExt m : messageExtList) {
-                                System.out.println(new String(m.getBody()));
+                                System.out.println(mq.getQueueId()+"========="+count + "=======================" + new String(m.getBody()));
                             }
                             break;
                         case NO_MATCHED_MSG:

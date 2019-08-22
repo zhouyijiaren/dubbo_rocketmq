@@ -75,7 +75,7 @@ public class Consumer {
                             System.out.println(messageExtList.get(0).getMsgId());
                             break;
                         case NO_MATCHED_MSG:
-                            break;
+                            break SINGLE_MQ;
                         case NO_NEW_MSG:
                             break SINGLE_MQ;
                         case OFFSET_ILLEGAL:

@@ -68,9 +68,11 @@ public class Consumer {
                         case FOUND:
                             List<MessageExt> messageExtList = pullResult.getMsgFoundList();
                             for (MessageExt m : messageExtList) {
-                                System.out.println(m.getMsgId());
+                                ///System.out.println(m.getMsgId());
                                 ///System.out.println(mq.getQueueId()+"========="+count++ + "=======================" + new String(m.getBody()));
+
                             }
+                            System.out.println(messageExtList.get(0).getMsgId());
                             break;
                         case NO_MATCHED_MSG:
                             break;
